@@ -1,0 +1,396 @@
+{
+    "17": {
+        "id": 17,
+        "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a \u043c\u0438\u043a\u0440\u043e\u0441\u0435\u0440\u0432\u0438\u0441\u0430\u043c",
+        "slug": "dokumentaciya-k-mikroservisam",
+        "parent_id": null,
+        "children": {
+            "9": {
+                "id": 9,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a API MS-AUTH",
+                "slug": "dokumentaciya-k-api-ms-auth",
+                "parent_id": 17
+            },
+            "10": {
+                "id": 10,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a API MS-CM",
+                "slug": "dokumentaciya-k-api-ms-cm",
+                "parent_id": 17
+            },
+            "11": {
+                "id": 11,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a API MS-CMS",
+                "slug": "dokumentaciya-k-api-ms-cms",
+                "parent_id": 17
+            },
+            "12": {
+                "id": 12,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a API MS-MARKETING",
+                "slug": "dokumentaciya-k-api-ms-marketing",
+                "parent_id": 17
+            },
+            "13": {
+                "id": 13,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a API MS-OMS",
+                "slug": "dokumentaciya-k-api-ms-oms",
+                "parent_id": 17
+            },
+            "14": {
+                "id": 14,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a API MS-PIM",
+                "slug": "dokumentaciya-k-api-ms-pim",
+                "parent_id": 17
+            },
+            "15": {
+                "id": 15,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a API \u0432\u043d\u0435\u0448\u043d\u0438\u0445 \u0438\u043d\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u0439, \u0434\u043b\u044f \u043f\u0440\u043e\u0434\u0430\u0432\u0446\u043e\u0432",
+                "slug": "dokumentaciya-k-api-vneshnikh-integracii-dlya-prodavcov",
+                "parent_id": 17
+            },
+            "16": {
+                "id": 16,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a Logistics",
+                "slug": "dokumentaciya-k-logistics",
+                "parent_id": 17
+            },
+            "18": {
+                "id": 18,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a MS CATALOG-IMPORT",
+                "slug": "dokumentaciya-k-ms-catalog-import",
+                "parent_id": 17
+            },
+            "19": {
+                "id": 19,
+                "title": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043a \"\u041f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0430.\u0410\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f\"",
+                "slug": "dokumentaciya-k-platforma.avtorizaciya",
+                "parent_id": 17
+            }
+        }
+    },
+    "20": {
+        "id": 20,
+        "title": "\u0414\u043e\u0441\u0442\u0443\u043f\u044b \u043d\u0430 \u0434\u0435\u043c\u043e-\u0441\u0442\u0435\u043d\u0434 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u044b",
+        "slug": "dostupy-na-demo-stend-platformy",
+        "parent_id": null
+    },
+    "21": {
+        "id": 21,
+        "title": "FAQ",
+        "slug": "faq",
+        "parent_id": null,
+        "children": {
+            "47": {
+                "id": 47,
+                "title": "\u041a\u0430\u043a \u0441\u043e\u0437\u0434\u0430\u0442\u044c \u0443\u0441\u043f\u0435\u0448\u043d\u044b\u0439 \u043d\u0438\u0448\u0435\u0432\u044b\u0439 \u043c\u0430\u0440\u043a\u0435\u0442\u043f\u043b\u0435\u0439\u0441",
+                "slug": "kak-sozdat-uspeshnyi-nishevyi-marketpleis",
+                "parent_id": 21
+            },
+            "55": {
+                "id": 55,
+                "title": "\u041e\u0442\u0432\u0435\u0442\u044b \u043d\u0430 \u0447\u0430\u0441\u0442\u043e \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043c\u044b\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u044b",
+                "slug": "otvety-na-chasto-zadavaemye-voprosy",
+                "parent_id": 21,
+                "children": {
+                    "2": {
+                        "id": 2,
+                        "title": "Back-end",
+                        "slug": "back-end",
+                        "parent_id": 55
+                    },
+                    "4": {
+                        "id": 4,
+                        "title": "\u0411\u0430\u0437\u044b \u0434\u0430\u043d\u043d\u044b\u0445",
+                        "slug": "bazy-dannykh",
+                        "parent_id": 55
+                    },
+                    "22": {
+                        "id": 22,
+                        "title": "Front-end",
+                        "slug": "front-end",
+                        "parent_id": 55
+                    },
+                    "53": {
+                        "id": 53,
+                        "title": "\u041e\u0431\u0449\u0438\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u044b",
+                        "slug": "obshie-voprosy",
+                        "parent_id": 55
+                    }
+                }
+            }
+        }
+    },
+    "24": {
+        "id": 24,
+        "title": "\u0424\u0417 \u043d\u0430 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0443",
+        "slug": "fz-na-platformu",
+        "parent_id": null
+    },
+    "25": {
+        "id": 25,
+        "title": "\u041d\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044f",
+        "slug": "homepage",
+        "parent_id": null
+    },
+    "30": {
+        "id": 30,
+        "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043f\u043e \u0440\u0430\u0431\u043e\u0442\u0435 \u041f\u041e LENNUF",
+        "slug": "instrukcii-po-rabote-po-lennuf",
+        "parent_id": null,
+        "children": {
+            "27": {
+                "id": 27,
+                "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043a \u043c\u043e\u0434\u0443\u043b\u044e \"\u0414\u043e\u0441\u0442\u0443\u043f\u044b\"",
+                "slug": "instrukcii-k-modulyu-dostupy",
+                "parent_id": 30
+            },
+            "28": {
+                "id": 28,
+                "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043a \u043c\u043e\u0434\u0443\u043b\u044e \"\u041a\u043e\u043c\u043c\u0443\u043d\u0438\u043a\u0430\u0446\u0438\u0438\"",
+                "slug": "instrukcii-k-modulyu-kommunikacii",
+                "parent_id": 30,
+                "children": {
+                    "61": {
+                        "id": 61,
+                        "title": "\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0448\u0430\u0431\u043b\u043e\u043d\u0430 \u043f\u0438\u0441\u044c\u043c\u0430",
+                        "slug": "redaktirovanie-shablona-pisma",
+                        "parent_id": 28
+                    },
+                    "64": {
+                        "id": 64,
+                        "title": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0430\u0432\u0442\u043e\u043d\u043e\u0442\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u0438",
+                        "slug": "sozdanie-avtonotifikacii",
+                        "parent_id": 28
+                    }
+                }
+            },
+            "29": {
+                "id": 29,
+                "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043a \u043c\u043e\u0434\u0443\u043b\u044e \"\u041c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433\"",
+                "slug": "instrukcii-k-modulyu-marketing",
+                "parent_id": 30,
+                "children": {
+                    "70": {
+                        "id": 70,
+                        "title": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u043c\u043e\u043a\u043e\u0434\u0430",
+                        "slug": "sozdanie-promokoda",
+                        "parent_id": 29
+                    },
+                    "71": {
+                        "id": 71,
+                        "title": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0441\u043a\u0438\u0434\u043a\u0438",
+                        "slug": "sozdanie-skidki",
+                        "parent_id": 29
+                    }
+                }
+            },
+            "31": {
+                "id": 31,
+                "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043f\u043e \u0440\u0430\u0431\u043e\u0442\u0435 \u0441 \u043c\u043e\u0434\u0443\u043b\u0435\u043c \u0440\u0435\u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0432",
+                "slug": "instrukcii-po-rabote-s-modulem-redirektov",
+                "parent_id": 30
+            },
+            "32": {
+                "id": 32,
+                "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043f\u043e \u0440\u0430\u0431\u043e\u0442\u0435 \u0441 \u043c\u043e\u0434\u0443\u043b\u0435\u043c SEO \u0442\u0435\u0433\u043e\u0432",
+                "slug": "instrukcii-po-rabote-s-modulem-seo-tegov",
+                "parent_id": 30
+            },
+            "33": {
+                "id": 33,
+                "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043f\u043e \u0440\u0430\u0431\u043e\u0442\u0435 \u0441 \u043c\u043e\u0434\u0443\u043b\u0435\u043c \"\u0422\u043e\u0432\u0430\u0440\u044b\"",
+                "slug": "instrukcii-po-rabote-s-modulem-tovary",
+                "parent_id": 30,
+                "children": {
+                    "66": {
+                        "id": 66,
+                        "title": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0431\u0440\u0435\u043d\u0434\u0430",
+                        "slug": "sozdanie-brenda",
+                        "parent_id": 33
+                    },
+                    "67": {
+                        "id": 67,
+                        "title": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0439",
+                        "slug": "sozdanie-kategorii",
+                        "parent_id": 33
+                    },
+                    "73": {
+                        "id": 73,
+                        "title": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u0430",
+                        "slug": "sozdanie-tovara",
+                        "parent_id": 33
+                    },
+                    "74": {
+                        "id": 74,
+                        "title": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u043d\u043e\u0433\u043e \u0430\u0442\u0440\u0438\u0431\u0443\u0442\u0430",
+                        "slug": "sozdanie-tovarnogo-atributa",
+                        "parent_id": 33
+                    },
+                    "75": {
+                        "id": 75,
+                        "title": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u043d\u043e\u0439 \u0433\u0440\u0443\u043f\u043f\u044b",
+                        "slug": "sozdanie-tovarnoi-gruppy",
+                        "parent_id": 33
+                    }
+                }
+            },
+            "34": {
+                "id": 34,
+                "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043f\u043e \u0440\u0430\u0431\u043e\u0442\u0435 \u0441 \u043c\u043e\u0434\u0443\u043b\u0435\u043c \u0412\u0435\u0431-\u0432\u0438\u0442\u0440\u0438\u043d\u0430 (CMS)",
+                "slug": "instrukcii-po-rabote-s-modulem-veb-vitrina-cms",
+                "parent_id": 30,
+                "children": {
+                    "38": {
+                        "id": 38,
+                        "title": "\u041a\u0430\u043a \u0438\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044e \u0432 \u0444\u0443\u0442\u0435\u0440\u0435 \u0441\u0430\u0439\u0442\u0430",
+                        "slug": "kak-izmenit-informaciyu-v-futere-saita",
+                        "parent_id": 34
+                    },
+                    "39": {
+                        "id": 39,
+                        "title": "\u041a\u0430\u043a \u0438\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044e \u0432 \u043c\u0435\u043d\u044e \"\u041f\u043e\u043c\u043e\u0449\u044c\"",
+                        "slug": "kak-izmenit-informaciyu-v-menyu-pomosh",
+                        "parent_id": 34
+                    },
+                    "40": {
+                        "id": 40,
+                        "title": "\u041a\u0430\u043a \u0438\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u043b\u043e\u0433\u043e\u0442\u0438\u043f \u043d\u0430 \u0432\u0438\u0442\u0440\u0438\u043d\u0435 \u0441\u0430\u0439\u0442\u0430",
+                        "slug": "kak-izmenit-logotip-na-vitrine-saita",
+                        "parent_id": 34
+                    },
+                    "41": {
+                        "id": 41,
+                        "title": "\u041a\u0430\u043a \u0438\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u043f\u0443\u043d\u043a\u0442\u044b \u043c\u0435\u043d\u044e \u043d\u0430 \u0432\u0438\u0442\u0440\u0438\u043d\u0435 \u0441\u0430\u0439\u0442\u0430",
+                        "slug": "kak-izmenit-punkty-menyu-na-vitrine-saita",
+                        "parent_id": 34
+                    },
+                    "42": {
+                        "id": 42,
+                        "title": "\u041a\u0430\u043a \u043f\u043e\u043c\u0435\u043d\u044f\u0442\u044c \u0442\u0435\u043c\u0443 \u0438 \u0441\u0442\u0438\u043b\u044c \u0432\u0438\u0442\u0440\u0438\u043d\u044b (\u0446\u0432\u0435\u0442\u0430)",
+                        "slug": "kak-pomenyat-temu-i-stil-vitriny-cveta",
+                        "parent_id": 34
+                    },
+                    "43": {
+                        "id": 43,
+                        "title": "\u041a\u0430\u043a \u0441\u043e\u0437\u0434\u0430\u0442\u044c \u0430\u043a\u0446\u0438\u044e (\u0434\u043b\u044f \u0440\u0430\u0437\u0434\u0435\u043b\u0430 \"\u0410\u043a\u0446\u0438\u0438\")",
+                        "slug": "kak-sozdat-akciyu-dlya-razdela-akcii",
+                        "parent_id": 34
+                    },
+                    "44": {
+                        "id": 44,
+                        "title": "\u041a\u0430\u043a \u0441\u043e\u0437\u0434\u0430\u0442\u044c \u0431\u0430\u043d\u043d\u0435\u0440",
+                        "slug": "kak-sozdat-banner",
+                        "parent_id": 34
+                    },
+                    "45": {
+                        "id": 45,
+                        "title": "\u041a\u0430\u043a \u0441\u043e\u0437\u0434\u0430\u0442\u044c \u0438 \u043d\u0430\u0437\u043d\u0430\u0447\u0438\u0442\u044c \u0442\u043e\u0432\u0430\u0440\u043d\u044b\u0439 \u0448\u0438\u043b\u044c\u0434\u0438\u043a",
+                        "slug": "kak-sozdat-i-naznachit-tovarnyi-shildik",
+                        "parent_id": 34
+                    },
+                    "46": {
+                        "id": 46,
+                        "title": "\u041a\u0430\u043a \u0441\u043e\u0437\u0434\u0430\u0442\u044c \u043b\u0443\u043a\u0431\u0443\u043a",
+                        "slug": "kak-sozdat-lukbuk",
+                        "parent_id": 34
+                    }
+                }
+            },
+            "35": {
+                "id": 35,
+                "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043f\u043e \u0440\u0430\u0431\u043e\u0442\u0435 \u0441 \u043c\u043e\u0434\u0443\u043b\u0435\u043c \"\u0412\u043e\u0437\u0432\u0440\u0430\u0442\u044b\"",
+                "slug": "instrukcii-po-rabote-s-modulem-vozvraty",
+                "parent_id": 30,
+                "children": {
+                    "51": {
+                        "id": 51,
+                        "title": "\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430 \u0441\u043f\u0440\u0430\u0432\u043e\u0447\u043d\u0438\u043a\u0430 \u043f\u0440\u0438\u0447\u0438\u043d \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430",
+                        "slug": "nastroika-spravochnika-prichin-vozvrata",
+                        "parent_id": 35
+                    },
+                    "69": {
+                        "id": 69,
+                        "title": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043f\u0440\u0438\u0447\u0438\u043d\u044b \u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430",
+                        "slug": "sozdanie-prichiny-vozvrata",
+                        "parent_id": 35
+                    }
+                }
+            },
+            "36": {
+                "id": 36,
+                "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u0438 \u043f\u043e \u0440\u0430\u0431\u043e\u0442\u0435 \u0441 \u043c\u043e\u0434\u0443\u043b\u0435\u043c \"\u0417\u0430\u043a\u0430\u0437\u044b\"",
+                "slug": "instrukcii-po-rabote-s-modulem-zakazy",
+                "parent_id": 30,
+                "children": {
+                    "59": {
+                        "id": 59,
+                        "title": "\u041f\u0440\u0438\u0447\u0438\u043d\u044b \u043f\u0440\u043e\u0431\u043b\u0435\u043c",
+                        "slug": "prichiny-problem",
+                        "parent_id": 36
+                    },
+                    "77": {
+                        "id": 77,
+                        "title": "\u0421\u043f\u0438\u0441\u043e\u043a \u0437\u0430\u043a\u0430\u0437\u043e\u0432",
+                        "slug": "spisok-zakazov",
+                        "parent_id": 36
+                    },
+                    "78": {
+                        "id": 78,
+                        "title": "\u0421\u0442\u0430\u0442\u0443\u0441\u044b \u0437\u0430\u043a\u0430\u0437\u043e\u0432",
+                        "slug": "statusy-zakazov",
+                        "parent_id": 36
+                    }
+                }
+            }
+        }
+    },
+    "37": {
+        "id": 37,
+        "title": "\u0418\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f \u043f\u043e \u043f\u043e\u0434\u0430\u0447\u0435 \u0437\u0430\u044f\u0432\u043e\u043a \u0432 \u0442\u0435\u0445\u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443",
+        "slug": "instrukciya-po-podache-zayavok-v-tekhpodderzhku",
+        "parent_id": null
+    },
+    "56": {
+        "id": 56,
+        "title": "\u041f\u0430\u043a\u0435\u0442 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u0437\u0430\u043f\u0443\u0441\u043a\u0430",
+        "slug": "paket-dokumentov-zapuska",
+        "parent_id": null,
+        "children": {
+            "1": {
+                "id": 1,
+                "title": "\u0410\u043d\u043a\u0435\u0442\u0430 \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u0430",
+                "slug": "anketa-zakazchika",
+                "parent_id": 56
+            },
+            "8": {
+                "id": 8,
+                "title": "CJM, AJM, MJM, RJM",
+                "slug": "cjm-ajm-mjm-rjm",
+                "parent_id": 56
+            },
+            "57": {
+                "id": 57,
+                "title": "\u041f\u0430\u043c\u044f\u0442\u043a\u0430 \u0437\u0430\u043f\u0443\u0441\u043a\u0430",
+                "slug": "pamyatka-zapuska",
+                "parent_id": 56
+            },
+            "83": {
+                "id": 83,
+                "title": "\u0422\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u0438\u044f \u043a \u043a\u043e\u043d\u0442\u0435\u043d\u0442\u0443",
+                "slug": "trebovaniya-k-kontentu",
+                "parent_id": 56
+            }
+        }
+    },
+    "80": {
+        "id": 80,
+        "title": "\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u044b",
+        "slug": "tekhnicheskoe-opisanie-platformy",
+        "parent_id": null
+    },
+    "82": {
+        "id": 82,
+        "title": "\u0422\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u0438\u044f \u043a \u0444\u043e\u0442\u043e",
+        "slug": "trebovaniya-k-foto",
+        "parent_id": null
+    }
+}

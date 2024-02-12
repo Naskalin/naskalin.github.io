@@ -1,0 +1,1192 @@
+---
+layout: default
+title: Документация к API внешних интеграций, для продавцов
+slug: dokumentaciya-k-api-vneshnikh-integracii-dlya-prodavcov
+id: 15
+parent_id: 17
+---
+<p>Методы API для продавцов</p>
+
+<h3>Общие данные</h3>
+
+<ol>
+    <li>Для отправки любых запросов требуется получить у администратора маркетплейса (МП) логин и пароль для
+        авторизации.
+    </li>
+    <li>Каждый запрос проходит basic-авторизацию, поля ответа фильтруются по id продавца (мерчанта) которому были выданы
+        доступы та где это необходимо.
+    </li>
+    <li>Ответ всегда приходит в формате json если не указано иное</li>
+</ol>
+
+<h3>Заказы</h3>
+<h4>Запрос</h4>
+<p>GET /api/v1/orders</p>
+<p>Для получения списка отправлений в запросе возможен (но необязателен) массив filters с ключами по которым следует
+    сделать выборку. </p>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значения</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>page</td>
+        <td>(array): number (int) size (int)</td>
+        <td>
+            Массив для работы с пагинацией: <br>
+            Номер страницы <br>
+            Кол-во элементов на странице
+        </td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>int</td>
+        <td>Идентификатор статусов (см Статусная модель доставки)</td>
+    </tr>
+    <tr>
+        <td>payment_status</td>
+        <td>int</td>
+        <td>Идентификатор статусов (см Статусная модель доставки)</td>
+    </tr>
+    <tr>
+        <td>is_canceled</td>
+        <td>int (0|1)</td>
+        <td>Флаг только “отмененные/не отмененные заказы”</td>
+    </tr>
+    <tr>
+        <td>is_problem</td>
+        <td>int (0|1)</td>
+        <td>Флаг только “проблемные заказы”</td>
+    </tr>
+    <tr>
+        <td>number</td>
+        <td>string</td>
+        <td>Номер заказа который видет мерчант</td>
+    </tr>
+    <tr>
+        <td>store_id</td>
+        <td>int</td>
+        <td>Идентификатор склада отаправки</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Ответ</h4>
+<p>В ответном массиве data приходит список Отправлений мерчанта подходящую под фильтр в запросе:</p>
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td></td>
+        <td>Системный идентификатор заказа</td>
+    </tr>
+    <tr>
+        <td>delivery_id</td>
+        <td></td>
+        <td>Системный идентификатор доставки</td>
+    </tr>
+    <tr>
+        <td>number</td>
+        <td>string</td>
+        <td>Номер заказа который видит мерчант</td>
+    </tr>
+    <tr>
+        <td>store_id</td>
+        <td>int</td>
+        <td>Идентификатор склада</td>
+    </tr>
+    <tr>
+        <td>cargo_id</td>
+        <td>int</td>
+        <td>Системный идентификатор груза</td>
+    </tr>
+    <tr>
+        <td>delivery_service_zero_mile</td>
+        <td>string</td>
+        <td>Дата “Нулевой мили”
+            “2022-06-07T16:30:00.000000Z”
+        </td>
+    </tr>
+    <tr>
+        <td>psd</td>
+        <td>string</td>
+        <td>Дата “ПСД”
+            “2022-06-07T16:30:00.000000Z”
+        </td>
+    </tr>
+    <tr>
+        <td>fsd</td>
+        <td>string</td>
+        <td>Дата “ФСД”
+            “2022-06-07T16:30:00.000000Z”
+        </td>
+    </tr>
+    <tr>
+        <td>created_at</td>
+        <td>string</td>
+        <td>Дата создания заказа, например
+            “13.06.2023 13:51”
+        </td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>int</td>
+        <td>Статус заказа
+            (см Статусная модель доставки)
+        </td>
+    </tr>
+    <tr>
+        <td>status_at</td>
+        <td>string</td>
+        <td>Дата последней смены статуса
+            “13.06.2023 13:51”
+        </td>
+    </tr>
+    <tr>
+        <td>payment_status</td>
+        <td>int</td>
+        <td>Статус оплаты заказа
+            (см Статусная модель доставки)
+        </td>
+    </tr>
+    <tr>
+        <td>payment_status_at</td>
+        <td>string</td>
+        <td>Дата последней смены статуса оплаты
+            “13.06.2023 13:51”
+        </td>
+    </tr>
+    <tr>
+        <td>is_canceled</td>
+        <td>bool</td>
+        <td>Флаг отмененного заказа</td>
+    </tr>
+    <tr>
+        <td>is_canceled_at</td>
+        <td>string</td>
+        <td>Дата отмены
+            “13.06.2023 13:51”
+        </td>
+    </tr>
+    <tr>
+        <td>is_problem</td>
+        <td>bool</td>
+        <td>Флаг проблемного заказа</td>
+    </tr>
+    <tr>
+        <td>is_problem_at</td>
+        <td>string</td>
+        <td>Дата отметки “проблемный”
+            “13.06.2023 13:51”
+        </td>
+    </tr>
+    <tr>
+        <td>cost</td>
+        <td>float</td>
+        <td>Общая стоимость заказа</td>
+    </tr>
+    <tr>
+        <td>width, height, length, weight</td>
+        <td>float</td>
+        <td>Ширина, высота, длина, вес отправления</td>
+    </tr>
+    <tr>
+        <td>required_shipping_at</td>
+        <td>string</td>
+        <td>Запрашиваемая дата доставки</td>
+    </tr>
+    <tr>
+        <td>updated_at</td>
+        <td>string</td>
+        <td>Дата последнего обновление модели
+            “13.06.2023 13:51”
+        </td>
+    </tr>
+    <tr>
+        <td>assembly_problem_comment</td>
+        <td>string</td>
+        <td>Комментарий при сборке заказа</td>
+    </tr>
+    <tr>
+        <td>problem_reason_id</td>
+        <td>int</td>
+        <td>Идентификатор проблемного заказа</td>
+    </tr>
+    <tr>
+        <td>basketItems</td>
+        <td>array</td>
+        <td>Массив со списком товаров в заказзе</td>
+    </tr>
+    <tr>
+        <td>delivery</td>
+        <td>array</td>
+        <td>Объект с информацией о доставке</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Элемент списка товаров в заказе (массив basketItems):</h4>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>int</td>
+        <td>Системный идентификатор товара в корзине</td>
+    </tr>
+    <tr>
+        <td>basket_id</td>
+        <td>int</td>
+        <td>Системный идентификатор корзины</td>
+    </tr>
+    <tr>
+        <td>offer_id</td>
+        <td>int</td>
+        <td>Идентификатор оффера</td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>int</td>
+        <td>Тип товара (1 - товар, 2 - услуга, 3 - подарочный сертификат)</td>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>string</td>
+        <td>Название товара</td>
+    </tr>
+    <tr>
+        <td>qty</td>
+        <td>int</td>
+        <td>Количество экземпляров</td>
+    </tr>
+    <tr>
+        <td>price</td>
+        <td>float</td>
+        <td>Цена на витрине</td>
+    </tr>
+    <tr>
+        <td>cost</td>
+        <td>float</td>
+        <td>Цена с учетом скидок</td>
+    </tr>
+    <tr>
+        <td>bonus_spent</td>
+        <td>int</td>
+        <td>Потрачено бонусов</td>
+    </tr>
+    <tr>
+        <td>bonus_discount</td>
+        <td>int</td>
+        <td>Бонусов начислено</td>
+    </tr>
+    <tr>
+        <td>created_at</td>
+        <td>string</td>
+        <td>Дата создания записи</td>
+    </tr>
+    <tr>
+        <td>updated_at</td>
+        <td>string</td>
+        <td>Дата обновления записи</td>
+    </tr>
+    <tr>
+        <td>referrer_id</td>
+        <td>?id</td>
+        <td>Идентификатор реферального партнера</td>
+    </tr>
+    <tr>
+        <td>bundle_id</td>
+        <td>?id</td>
+        <td>Идентификатор бандла</td>
+    </tr>
+    <tr>
+        <td>product</td>
+        <td>array</td>
+        <td>Объект с информацией о товаре</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>int</td>
+        <td>Системный идентификатор</td>
+    </tr>
+    <tr>
+        <td>weight, width, height, length</td>
+        <td>string</td>
+        <td>Характеристики ШВГ и вес</td>
+    </tr>
+    <tr>
+        <td>is_explosive</td>
+        <td>bool</td>
+        <td>Флаг взрывоопасного товара</td>
+    </tr>
+    <tr>
+        <td>categories</td>
+        <td>array</td>
+        <td>массив с идентификаторами категорий товара</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Объект с информацией о доставке в доставке (массив delivery):</h4>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>int</td>
+        <td>Системный идентификатор доставки</td>
+    </tr>
+    <tr>
+        <td>order_id</td>
+        <td>int</td>
+        <td>Системный идентификатор заказа</td>
+    </tr>
+    <tr>
+        <td>delivery_method</td>
+        <td>int</td>
+        <td>Метод доставки (1- доставка курьером, 2 - ПВЗ, 3 - Постомат)</td>
+    </tr>
+    <tr>
+        <td>delivery_service</td>
+        <td>int</td>
+        <td>Системный идентификатор ЛО</td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>int</td>
+        <td>Статус доставки (см Статусная модель доставки)</td>
+    </tr>
+    <tr>
+        <td>status_xml_id</td>
+        <td>string</td>
+        <td>Идентификатор статуса доставки у ЛО</td>
+    </tr>
+    <tr>
+        <td>payment_status</td>
+        <td>int</td>
+        <td>Статус оплаты доставки (см Статусная модель доставки)</td>
+    </tr>
+    <tr>
+        <td>payment_status_at</td>
+        <td>string</td>
+        <td>Дата оплаты</td>
+    </tr>
+    <tr>
+        <td>is_canceled</td>
+        <td>bool</td>
+        <td>Флаг отмененной доставки</td>
+    </tr>
+    <tr>
+        <td>is_canceled_at</td>
+        <td>string</td>
+        <td>Дата отмены</td>
+    </tr>
+    <tr>
+        <td>is_problem</td>
+        <td>bool</td>
+        <td>Флаг проблемной доставки</td>
+    </tr>
+    <tr>
+        <td>is_problem_at</td>
+        <td>string</td>
+        <td>Дата проблемы</td>
+    </tr>
+    <tr>
+        <td>xml_id</td>
+        <td>string</td>
+        <td>Идентификатор доставки у ЛО</td>
+    </tr>
+    <tr>
+        <td>tracknumber</td>
+        <td>string</td>
+        <td>Трек-номер</td>
+    </tr>
+    <tr>
+        <td>barcode</td>
+        <td>string</td>
+        <td>Штрих-код</td>
+    </tr>
+    <tr>
+        <td>error_xml_id</td>
+        <td>string</td>
+        <td>Ошибка со стороны ЛО</td>
+    </tr>
+    <tr>
+        <td>tariff_id</td>
+        <td>int</td>
+        <td>Идентификатор тарифа</td>
+    </tr>
+    <tr>
+        <td>point_id</td>
+        <td>int</td>
+        <td>Идентификатор ПВЗ</td>
+    </tr>
+    <tr>
+        <td>number</td>
+        <td>string</td>
+        <td>Номер доставки видимый Мерчанту</td>
+    </tr>
+    <tr>
+        <td>delivery_address</td>
+        <td>array</td>
+        <td>Объект с информацией об адресе доставки</td>
+    </tr>
+    <tr>
+        <td>receiver_name</td>
+        <td>string</td>
+        <td>Имя получателя</td>
+    </tr>
+    <tr>
+        <td>receiver_phone</td>
+        <td>string</td>
+        <td>Телефон получателя</td>
+    </tr>
+    <tr>
+        <td>cost</td>
+        <td>float</td>
+        <td>Стоимость доставки</td>
+    </tr>
+    <tr>
+        <td>width,height,length,weight,</td>
+        <td>string</td>
+        <td>Характеристики ШВГ и вес</td>
+    </tr>
+    <tr>
+        <td>delivery_at</td>
+        <td>string</td>
+        <td>Время, когда заказ был доставлен</td>
+    </tr>
+    <tr>
+        <td>delivery_time_code</td>
+        <td>string</td>
+        <td>Желаемое время доставки (окно), формат ЧЧ-ЧЧ</td>
+    </tr>
+    <tr>
+        <td>delivery_time_start</td>
+        <td>string</td>
+        <td>Желаемое дата и время доставки “c”</td>
+    </tr>
+    <tr>
+        <td>delivery_time_end</td>
+        <td>string</td>
+        <td>Желаемое дата и время доставки “до”</td>
+    </tr>
+    <tr>
+        <td>dt</td>
+        <td>int</td>
+        <td>ДТ</td>
+    </tr>
+    <tr>
+        <td>pdd</td>
+        <td>string</td>
+        <td>ПДД</td>
+    </tr>
+    <tr>
+        <td>status_at</td>
+        <td>string</td>
+        <td>Время последнего изменения статуса</td>
+    </tr>
+    <tr>
+        <td>status_xml_id_at</td>
+        <td>string</td>
+        <td>Время последнего изменения статуса ЛО</td>
+    </tr>
+    <tr>
+        <td>order</td>
+        <td>array</td>
+        <td>Объект с информацией о заказе</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Объект с информацией о доставке в заказе (массив order):</h4>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>int</td>
+        <td>Системный идентификатор заказа</td>
+    </tr>
+    <tr>
+        <td>number</td>
+        <td>string</td>
+        <td>Видимый мерчанту номер заказа</td>
+    </tr>
+    <tr>
+        <td>basket_id</td>
+        <td>int</td>
+        <td>Системный идентификатор корзины</td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>int</td>
+        <td>Тип товара (1 - товар, 2 - услуга, 3 - подарочный сертификат)</td>
+    </tr>
+    <tr>
+        <td>customer_id</td>
+        <td>int</td>
+        <td>Системный идентификатор покупателя</td>
+    </tr>
+    <tr>
+        <td>receiver_name</td>
+        <td>string</td>
+        <td>Имя получателя</td>
+    </tr>
+    <tr>
+        <td>receiver_phone</td>
+        <td>string</td>
+        <td>Телефон получателя</td>
+    </tr>
+    <tr>
+        <td>receiver_email</td>
+        <td>string</td>
+        <td>email получателя</td>
+    </tr>
+    <tr>
+        <td>cost</td>
+        <td>float</td>
+        <td>Сумма заказа со скидкой</td>
+    </tr>
+    <tr>
+        <td>price</td>
+        <td>float</td>
+        <td>Сумма заказа без скидкой</td>
+    </tr>
+    <tr>
+        <td>delivery_price</td>
+        <td>float</td>
+        <td>Стоимость доставки</td>
+    </tr>
+    <tr>
+        <td>delivery_cost</td>
+        <td>float</td>
+        <td>Стоимость доставки со скидкой</td>
+    </tr>
+    <tr>
+        <td>spent_bonus</td>
+        <td>int</td>
+        <td>потрачено бонусов</td>
+    </tr>
+    <tr>
+        <td>added_bonus</td>
+        <td>int</td>
+        <td>Начислено бонусов</td>
+    </tr>
+    <tr>
+        <td>delivery_type</td>
+        <td>int</td>
+        <td>Метод доставки (1- доставка курьером, 2 - ПВЗ, 3 - Постомат)</td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>int</td>
+        <td>Статус заказа (см Статусная модель доставки)</td>
+    </tr>
+    <tr>
+        <td>status_at</td>
+        <td>string</td>
+        <td>Дата обновления статуса</td>
+    </tr>
+    <tr>
+        <td>payment_status</td>
+        <td>int</td>
+        <td>Статус оплаты заказа(см Статусная модель доставки)</td>
+    </tr>
+    <tr>
+        <td>payment_status_at</td>
+        <td>string</td>
+        <td>Дата обновления статуса оплаты</td>
+    </tr>
+    <tr>
+        <td>is_problem</td>
+        <td>bool</td>
+        <td>Флаг проблемного заказа</td>
+    </tr>
+    <tr>
+        <td>is_problem_at</td>
+        <td>string</td>
+        <td>Дата проблемы</td>
+    </tr>
+    <tr>
+        <td>is_canceled</td>
+        <td>bool</td>
+        <td>Флаг отмененного заказа</td>
+    </tr>
+    <tr>
+        <td>is_canceled_at</td>
+        <td>string</td>
+        <td>Дата отмены</td>
+    </tr>
+    <tr>
+        <td>is_require_check</td>
+        <td>bool</td>
+        <td>Флаг что требуется проверка</td>
+    </tr>
+    <tr>
+        <td>manager_comment</td>
+        <td>string</td>
+        <td>Комментарий менеджера</td>
+    </tr>
+    <tr>
+        <td>confirmation_type</td>
+        <td>int</td>
+        <td>Тип подтверждения заказа</td>
+    </tr>
+    <tr>
+        <td>created_at</td>
+        <td>string</td>
+        <td>Дата создания записи</td>
+    </tr>
+    <tr>
+        <td>updated_at</td>
+        <td>string</td>
+        <td>Дата обновления записи</td>
+    </tr>
+    <tr>
+        <td>cancel_reason_id</td>
+        <td>int</td>
+        <td>Идентификатор причины отмены</td>
+    </tr>
+    <tr>
+        <td>cancel_text</td>
+        <td>string</td>
+        <td>Комментарий отмены</td>
+    </tr>
+    <tr>
+        <td>problem_reason_id</td>
+        <td>int</td>
+        <td>Идентификатор причины проблемы</td>
+    </tr>
+    </tbody>
+</table>
+
+<p>Пример запроса: /api/v1/orders?sort=desc&filters[status]=26&page[number]=1&page[size]=5</p>
+
+<h3>Информация о конкретном заказе</h3>
+<code>GET /api/v1/orders/[номер заказа]</code>
+<p>Отдает информацию о конкретном заказе.</p>
+
+<h3>Возвраты</h3>
+<h4>Запрос</h4>
+<code>GET /api/v1/returns</code>
+<p>Отдает список возвратов. Во входных параметрах доступен массив filters с добавлением в него полей необходимых для фильтрации списка</p>
+<h4>Ответ</h4>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>int</td>
+        <td>Системный идентификатор возврата</td>
+    </tr>
+    <tr>
+        <td>number</td>
+        <td>string</td>
+        <td>Видимый всем номер возврата</td>
+    </tr>
+    <tr>
+        <td>return_status_date</td>
+        <td>string</td>
+        <td>Дата изменения статуса</td>
+    </tr>
+    <tr>
+        <td>return_route</td>
+        <td>array</td>
+        <td>Объект с информацией о маршруте возврата</td>
+    </tr>
+    <tr>
+        <td>return_method</td>
+        <td>array</td>
+        <td>Объект с информацией о методе возврата</td>
+    </tr>
+    <tr>
+        <td>delivery_service</td>
+        <td>array</td>
+        <td>Объект с информацией об ЛО</td>
+    </tr>
+    <tr>
+        <td>return_date</td>
+        <td>string</td>
+        <td>Дата возврата</td>
+    </tr>
+    <tr>
+        <td>return_timeslot</td>
+        <td>string</td>
+        <td>Желаемый таймслот для возврата</td>
+    </tr>
+    <tr>
+        <td>point_id</td>
+        <td>int</td>
+        <td>Идентификатор ПВЗ</td>
+    </tr>
+    <tr>
+        <td>store_id</td>
+        <td>int</td>
+        <td>Идентификатор склада</td>
+    </tr>
+    <tr>
+        <td>delivery_service_order_number</td>
+        <td>string</td>
+        <td>Номер заказа в ЛО</td>
+    </tr>
+    <tr>
+        <td>delivery_service_claim_number</td>
+        <td>string</td>
+        <td>Номер заявки в ЛО</td>
+    </tr>
+    <tr>
+        <td>delivery_cost</td>
+        <td>float</td>
+        <td>Стоимость доставки</td>
+    </tr>
+    <tr>
+        <td>return_from_address</td>
+        <td>array</td>
+        <td>Объект с информацией об адресе отправителя</td>
+    </tr>
+    <tr>
+        <td>items</td>
+        <td>array</td>
+        <td>Объект с информацией о возвращаемых товарах</td>
+    </tr>
+    <tr>
+        <td>returnStatus</td>
+        <td>array</td>
+        <td>Объект с информацией о статусе возврата</td>
+    </tr>
+    </tbody>
+</table>
+
+<p>Пример запроса</p>
+<pre><code>http://127.0.0.1:8000/api/v1/returns?sort=desc&filters[order_id]=57&page[number]=1&page[size]=5</code></pre>
+
+<h3>Получение информации о конкретном возврате</h3>
+<code>GET /api/v1/returns/[номер возврата]</code>
+<p>Отдает информацию о конкретном возврате.</p>
+
+<h3>Список покупателей</h3>
+<code>GET /api/v1/clients</code>
+<p>Отдает список покупателей.</p>
+<p>Доступные параметры для фильтрации:</p>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значения</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>array</td>
+        <td>int- идентификаторы статусов согласно статусной модели покупателей</td>
+    </tr>
+    <tr>
+        <td>phone</td>
+        <td>string</td>
+        <td>номер телефона пользовтеля</td>
+    </tr>
+    <tr>
+        <td>fullName</td>
+        <td>string</td>
+        <td>ФИО</td>
+    </tr>
+    <tr>
+        <td>gender</td>
+        <td>?int</td>
+        <td>Пол покупателя: <br>
+            1- Женский<br>
+            2- Мужской<br>
+            (не заполнено) - любой
+        </td>
+    </tr>
+    <tr>
+        <td>createdBetween</td>
+        <td>array</td>
+        <td>Массив строк дат периода создания заказа, дата в формате “ГГГГ-ММ-ДД”</td>
+    </tr>
+    <tr>
+        <td>isReferral</td>
+        <td>bool или int(0|1)</td>
+        <td>Флаг реферального партнера</td>
+    </tr>
+    </tbody>
+</table>
+
+<p>Пример запроса:</p>
+<pre><code>/api/v1/clients?filter%5BcreatedBetween%5D%5B%5D=2023-05-01&filter%5BcreatedBetween%5D%5B%5D=2023-06-01</code></pre>
+
+
+<p>Пример ответа:</p>
+<pre><code>/api/v1/clients?filter%5BcreatedBetween%5D%5B%5D=2023-05-01&filter%5BcreatedBetween%5D%5B%5D=2023-06-01</code></pre>
+<code>{"status":"success","message":null,"data":[{"register_date":"17.05.2023 10:17","full_name":"Guest","phone":"+79999999947","email":null,"status":"Активный"},{"register_date":"15.05.2023 15:04","full_name":"Guest","phone":"+79999552351","email":null,"status":"Активный"}]}</code>
+
+<h3>Информация о конкретном получателе</h3>
+<code>GET /api/v1/clients/[id клиента]</code>
+<p>Отдает информацию о конкретном клиенте.</p>
+
+<h3>Список категорий</h3>
+<code>GET /api/v1/categories</code>
+<p>Выводит список категорий</p>
+
+<h3>Список атрибутов товаров в категории</h3>
+<p>GET /api/v1/categories[id категории]/properties</p>
+
+<h3>Список товаров</h3>
+<code>GET /api/v1/products</code>
+<p>Выводит список товаров. Параметры с полями для фильтрации в разработке</p>
+
+<h3>Информация о товаре</h3>
+<code>GET /api/v1/products/[id товара]</code>
+<p>Выводит информацию о конкретном товаре</p>
+
+<h3>Импорт товара</h3>
+<code>POST /api/v1/products</code>
+<p>Формат json, может быть вложенным массивом items до 100 элементов (в разработке)</p>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>string обязательное</td>
+        <td>Название</td>
+    </tr>
+    <tr>
+        <td>brand_id</td>
+        <td>int обязательное</td>
+        <td>id бренда</td>
+    </tr>
+    <tr>
+        <td>category_id</td>
+        <td>int обязательное</td>
+        <td>id категории</td>
+    </tr>
+    <tr>
+        <td>vendor_code</td>
+        <td>string может быть null</td>
+        <td>Артикул</td>
+    </tr>
+    <tr>
+        <td>xml_id</td>
+        <td>string обязательное</td>
+        <td>Внешний код</td>
+    </tr>
+    <tr>
+        <td>barcode</td>
+        <td>string обязательное</td>
+        <td>Штрих-код</td>
+    </tr>
+    <tr>
+        <td>weight</td>
+        <td>int необязательное</td>
+        <td>Вес</td>
+    </tr>
+    <tr>
+        <td>width</td>
+        <td>int необязательное</td>
+        <td>Ширина(см)</td>
+    </tr>
+    <tr>
+        <td>height</td>
+        <td>int необязательное</td>
+        <td>Высота(см)</td>
+    </tr>
+    <tr>
+        <td>length</td>
+        <td>int необязательное</td>
+        <td>Длина(см)</td>
+    </tr>
+    <tr>
+        <td>packaged_width</td>
+        <td>int необязательное</td>
+        <td>Ширина в упаковке (см)</td>
+    </tr>
+    <tr>
+        <td>packaged_height</td>
+        <td>int необязательное</td>
+        <td>Высота в упаковке (см)</td>
+    </tr>
+    <tr>
+        <td>packaged_length</td>
+        <td>int необязательное</td>
+        <td>Длина в упаковке (см)</td>
+    </tr>
+    <tr>
+        <td>packaged_weight</td>
+        <td>int необязательное</td>
+        <td>Вес в упаковке(гр)</td>
+    </tr>
+    <tr>
+        <td>gas</td>
+        <td>bool обязательное</td>
+        <td>Газ</td>
+    </tr>
+    <tr>
+        <td>explosive</td>
+        <td>bool обязательное</td>
+        <td>Взрывоопасное</td>
+    </tr>
+    <tr>
+        <td>has_battery</td>
+        <td>bool обязательное</td>
+        <td>Имеет аккумулятор</td>
+    </tr>
+    <tr>
+        <td>fragile</td>
+        <td>bool обязательное</td>
+        <td>Хрупкое</td>
+    </tr>
+    <tr>
+        <td>description</td>
+        <td>string обязательное</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>description_video</td>
+        <td>string может быть null</td>
+        <td>Ссылка на видео</td>
+    </tr>
+    <tr>
+        <td>need_special_case</td>
+        <td>string может быть null</td>
+        <td>Специальная упаковка</td>
+    </tr>
+    <tr>
+        <td>need_special_store</td>
+        <td>string может быть null</td>
+        <td>Специальные условия хранения</td>
+    </tr>
+    <tr>
+        <td>days_to_return</td>
+        <td>int может быть null</td>
+        <td>Дней на возврат</td>
+    </tr>
+    </tbody>
+</table>
+
+<p>По умолчанию статус товара “Не согласовано” (1). Администратор маркетплейса может поменять статус по умолчанию через константу “DEFAULT_PRODUCT_APPROVAL_STATUS” в .env файле. Константа может принимать значения соответствующие этим статусам (integer):</p>
+<p>“Не согласовано” - 1, “Отправлено” - 2, “На рассмотрении” - 3, “Отклонено” - 4, “Согласовано” - 5, “Сформировано” - 6</p>
+<p>В ответе приходит id оффера и товара, пример:</p>
+<code>{"product_id": 1058,"offer_id": 1101}</code>
+
+<h3>Список офферов</h3>
+<code>GET /api/v1/offers</code>
+<p>Возвращает список офферов мерчанта</p>
+<h3>Информация об оффере</h3>
+<code>GET /api/v1/offers/[id оффера]</code>
+<p>Возвращает информацию об оффере</p>
+
+
+<h3>Добавление оффера</h3>
+<code>POST  /api/v1/offers</code>
+<p>Формат json, может быть вложенным массивом items до 100 элементов (в разработке)</p>
+
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>product_id</td>
+        <td>int Обязательно</td>
+        <td>id товара</td>
+    </tr>
+    <tr>
+        <td>merchant_id</td>
+        <td>int Обязательно</td>
+        <td>id мерчанта</td>
+    </tr>
+    <tr>
+        <td>price</td>
+        <td>int Обязательно</td>
+        <td>цена</td>
+    </tr>
+    <tr>
+        <td>sale_status</td>
+        <td>int Обязательно</td>
+        <td>Идентификатор статуса согласно статусной модели оффера</td>
+    </tr>
+    <tr>
+        <td>sale_at</td>
+        <td>string Необязательно</td>
+        <td>дата начала продажи</td>
+    </tr>
+    <tr>
+        <td>stocks</td>
+        <td>array
+            store_id int
+            qty int
+        </td>
+        <td>массив складов с остатками. <br>
+            Идентификатор склада <br>
+            Остатки
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p>Пример запроса:</p>
+<code>{"product_id":"1061","merchant_id":3,"price":100,"sale_status":1,"sale_at":"","stocks":[{"store_id":"1","qty":100},{"store_id":"11","qty":200},{"store_id":"10","qty":20}]}</code>
+
+<p>Ответ:</p>
+<code>{"offer_id": 1106}</code>
+
+<h3>Обновление оффера</h3>
+<code>POST  /api/v1/offers[id оффера]</code>
+<p>Параметры аналогичны запросу на создание оффера</p>
+
+<h3>Массовое обновление цен</h3>
+<code>POST /api/v1/prices/set-prices</code>
+<p>Массово обновляет цены офферам</p>
+
+<p>Параметры:</p>
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>(array) prices</td>
+        <td>
+            (int) offer_id обязательно <br>
+            (int) price обязательно <br>
+        </td>
+        <td>Массив <br>
+            Идентификатор оффера <br>
+            Цена
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p>Пример запроса:</p>
+<code>{"prices":[{"offer_id":350,"price":200},{"offer_id":973,"price":200}]}</code>
+
+<h3>Массовое обновление остатков</h3>
+<code>POST /api/v1/stocks/set-stocks</code>
+<p>Массово обновляет остатки оффера на складах</p>
+
+<p>Параметры:</p>
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>(array) stocks</td>
+        <td>
+            (int) offer_id обязательно <br>
+            (int) store_id обязательно <br>
+            (int) product_id обязательно <br>
+            (int) qty обязательно
+        </td>
+        <td>Массив <br>
+            Идентификатор оффера <br>
+            Идентификатор склада <br>
+            Идентификатор товара <br>
+            Количество остатков
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Загрузка файлов/изображений</h3>
+<p>Изображения загружаются не непосредственно в файловый микросервис</p>
+<code>POST [микросервис file-ms]/api/v1/files</code>
+
+
+<p>Параметры:</p>
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>file</td>
+        <td>file обязательно</td>
+        <td>загружаемый файл</td>
+    </tr>
+    <tr>
+        <td>folder</td>
+        <td>string обязательно</td>
+        <td>Папка, например “catalog”</td>
+    </tr>
+    </tbody>
+</table>
+
+<p>В ответе получаем идентификатор загруженного файла</p>
+
+<h3>Добавление изображения к товару</h3>
+<code>POST /api/v1/products/[id товара]/add-image</code>
+<p>Добавляет изображение к товару</p>
+
+
+<p>Параметры:</p>
+<table class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <td>Ключ</td>
+        <td>Значение</td>
+        <td>Описание</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>int обязательно</td>
+        <td>идентификатор файла</td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>int обязательно</td>
+        <td>Тип файла
+            2 - фото для каталога <br>
+            3 - фото для галереи <br>
+            4 - фото в описание товара
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p>Пример запроса:</p>
+<code>{ "id": "47049","type": 2}</code>
